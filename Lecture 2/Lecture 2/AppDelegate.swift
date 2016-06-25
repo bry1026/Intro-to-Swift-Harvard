@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Assignment 1
+//  Lecture 2
 //
 //  Created by Bryan Marin on 6/22/16.
 //  Copyright © 2016 Bryan Marin. All rights reserved.

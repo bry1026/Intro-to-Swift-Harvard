@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AA8DFC031D1C286F007B506C /* Assignment 1A.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assignment 1A.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA8DFC031D1C286F007B506C /* Assignment 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assignment 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA8DFC061D1C286F007B506C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA8DFC081D1C286F007B506C /* SimulationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationViewController.swift; sourceTree = "<group>"; };
 		AA8DFC0A1D1C286F007B506C /* InstrumentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentationViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		AA8DFC041D1C286F007B506C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA8DFC031D1C286F007B506C /* Assignment 1A.app */,
+				AA8DFC031D1C286F007B506C /* Assignment 1.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AA8DFC021D1C286F007B506C /* Assignment 1A */ = {
+		AA8DFC021D1C286F007B506C /* Assignment 1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA8DFC171D1C286F007B506C /* Build configuration list for PBXNativeTarget "Assignment 1A" */;
+			buildConfigurationList = AA8DFC171D1C286F007B506C /* Build configuration list for PBXNativeTarget "Assignment 1" */;
 			buildPhases = (
 				AA8DFBFF1D1C286F007B506C /* Sources */,
 				AA8DFC001D1C286F007B506C /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = "Assignment 1A";
+			name = "Assignment 1";
 			productName = "Assignment 1A";
-			productReference = AA8DFC031D1C286F007B506C /* Assignment 1A.app */;
+			productReference = AA8DFC031D1C286F007B506C /* Assignment 1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,6 +99,7 @@
 				TargetAttributes = {
 					AA8DFC021D1C286F007B506C = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5QZ57F88DJ;
 					};
 				};
 			};
@@ -115,7 +116,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AA8DFC021D1C286F007B506C /* Assignment 1A */,
+				AA8DFC021D1C286F007B506C /* Assignment 1 */,
 			);
 		};
 /* End PBXProject section */
@@ -255,10 +256,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Assignment 1A/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Bryan.Assignment-1A";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -266,10 +270,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Assignment 1A/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Bryan.Assignment-1A";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -285,13 +292,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA8DFC171D1C286F007B506C /* Build configuration list for PBXNativeTarget "Assignment 1A" */ = {
+		AA8DFC171D1C286F007B506C /* Build configuration list for PBXNativeTarget "Assignment 1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA8DFC181D1C286F007B506C /* Debug */,
 				AA8DFC191D1C286F007B506C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
