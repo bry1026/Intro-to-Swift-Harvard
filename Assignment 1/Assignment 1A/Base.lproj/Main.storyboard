@@ -10,7 +10,7 @@
         <!--LifeGrid-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" userLabel="LifeGrid" customClass="FirstViewController" customModule="Assignment_1A" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" userLabel="LifeGrid" customClass="FirstViewController" customModule="Assignment_1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -130,7 +130,7 @@
         <!--Instrumentation-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Assignment_1A" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Assignment_1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -159,7 +159,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ARS-qI-uJ8" userLabel="FrameStack">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ARS-qI-uJ8" userLabel="FrameStack">
                                                                 <rect key="frame" x="0.0" y="50" width="600" height="59"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frames/Second" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLY-iQ-SiB">
@@ -273,6 +273,21 @@
                                         <exclude reference="h7O-5s-ORw"/>
                                         <exclude reference="jLv-fw-rCV"/>
                                         <include reference="lbd-pt-ndo"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="7iN-g6-Aun"/>
+                                        <exclude reference="Rbd-Dy-oix"/>
+                                        <include reference="bTP-gO-STv"/>
+                                        <include reference="edd-FX-jwb"/>
+                                        <exclude reference="l4h-ku-1wQ"/>
+                                        <include reference="1qe-Iq-d9e"/>
+                                        <exclude reference="C0c-dx-VU0"/>
+                                        <include reference="JvO-T9-EAY"/>
+                                        <include reference="bIZ-60-y0l"/>
+                                        <exclude reference="h7O-5s-ORw"/>
+                                        <exclude reference="jLv-fw-rCV"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
