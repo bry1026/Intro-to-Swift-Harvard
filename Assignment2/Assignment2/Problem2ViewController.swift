@@ -62,47 +62,49 @@ class Problem2ViewController: MainController {
         var printedBeforeCount = "Before: \(livingCellCount) living cells"
         
         
-        func howManyLivingNeighbors ( twoDimensionalArray:[[Bool]], _ row:Int, _ column:Int) -> Int {
-            // function will fnd the amount of living neighbors to before cells
+        func returnNeighbors(x: Int, y: Int) -> Int
+        {
+            var aliveNeighbors: Int = 0;
             
-            livingCellCount = 0
-            
-            if before[(row)%10][(column+1)%10]
-            {livingCellCount += 1}
-            // top
-            if before[(row)%10][(column+9)%10]
-            {livingCellCount += 1}
-            // bottom
-            
-            if before[(row+1)%10][(column)%10]
-            {livingCellCount += 1}
-            // right
-            if before[(row+9)%10][(column)%10]
-            {livingCellCount += 1}
-            // left
-            if before[(row+1)%10][(column+1)%10]
-            {livingCellCount += 1}
-            // top right
-            
-            if before[(row+9)%10][(column+1)%10]
-            {livingCellCount += 1}
-            // top left
-            if before[(row+1)%10][(column+9)%10]
-            {livingCellCount += 1}
-            // bottom right
-            
-            if before[(row+9)%10][(column+9)%10]
-            {livingCellCount += 1}
-            // bottom left
-            
-            
-            /* Each row and column is applied the remainder 10 function in order to wrap
-             around values greater than 10 */
-            
-            return livingCellCount
-            
-        }
-        
+            switch before[x][y]
+            {
+                
+            //(1,1)
+            case before[(x+9)%10][(y+9)%10] == true:
+                aliveNeighbors = aliveNeighbors + 1
+                
+            //(1,0)
+            case before[(x+9)%10][(y+0)%10] == true:
+                aliveNeighbors = aliveNeighbors + 1
+                
+            //(1,9)
+            case before[(x+9)%10][(y+1)%10] == true:
+                aliveNeighbors = aliveNeighbors + 1
+                
+            //(0,1)
+            case before[x][(y+9)%10] == true:
+                aliveNeighbors = aliveNeighbors + 1
+                
+            //(0,9)
+            case before[x][(y+1%10)] == true:
+                aliveNeighbors = aliveNeighbors + 1
+                
+            //(9,1)
+            case before[(x+1)%10][(y+9)%10] == true:
+                aliveNeighbors = aliveNeighbors + 1
+                
+            //(9,0)
+            case before[(x+1)%10][y] == true:
+                aliveNeighbors = aliveNeighbors + 1
+                
+            //(9,9)
+            case before[(x+1)%10][(y+1)%10] == true:
+                aliveNeighbors = aliveNeighbors + 1
+                
+            default:
+                aliveNeighbors = aliveNeighbors + 0
+            }
+            return aliveNeighbors
         
         
         for row in 0..<10 {
