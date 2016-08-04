@@ -11,31 +11,30 @@ import UIKit
 
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, EngineDelegate {
    
-    
-    @IBAction func iteratePressed(sender: UIButton) {
-        
-        
-        
+    @IBOutlet weak var gridView: GridView!
+    @IBAction func runPressed(sender: UIButton) {
         
     }
-    
-    
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        engineDidUpdate(StandardEngine.sharedInstance.grid)
+        StandardEngine.sharedInstance.delegate = self
+    }
+
+    
+    func engineDidUpdate(withGrid: GridProtocol) {
+        gridView.setNeedsDisplay()
     }
     
     override func didReceiveMemoryWarning() {

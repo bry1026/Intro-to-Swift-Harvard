@@ -166,8 +166,8 @@ import UIKit
             
         override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        let cellWidth = bounds.width / CGFloat (rows)
-        let cellHeight = bounds.height / CGFloat (cols)
+        let cellWidth = bounds.width / CGFloat (cols)
+        let cellHeight = bounds.height / CGFloat (rows)
         
         for i in touches {
             let row = i.locationInView(self).y / CGFloat(cellHeight)
@@ -176,13 +176,9 @@ import UIKit
             var stateOfCell = grid[Int(row)][Int(col)]
             grid[Int(row)][Int(col)] = stateOfCell.toggle(stateOfCell)
             
-            self.setNeedsDisplayInRect(CGRect(
-                x:CGFloat(cellWidth) * CGFloat(col) + gridWidth/2,
-                y:CGFloat(cellHeight) * CGFloat(row) + gridWidth/2,
-                width:CGFloat(cellWidth - gridWidth),
-                height:CGFloat(cellHeight - gridWidth)))
-        }
+                    }
     }
+    
 
     
     
