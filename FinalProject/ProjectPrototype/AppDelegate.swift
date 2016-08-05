@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  ProjectPrototype
-//
-//  Created by Van Simmons on 7/23/16.
-//  Copyright © 2016 S65g. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

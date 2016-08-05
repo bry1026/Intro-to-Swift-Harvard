@@ -40,7 +40,7 @@ protocol GridProtocol {
     var empty:  Int { get }
     
     subscript (i:Int, j:Int) -> CellState { get set }
-
+    
     func neighbors(pos: Position) -> [Position]
     func livingNeighbors(position: Position) -> Int
 }
@@ -63,6 +63,8 @@ protocol EngineProtocol {
     weak var delegate: EngineDelegate? { get set }
     
     var refreshRate:  Double { get set }
+    
+    
     var refreshTimer: NSTimer? { get set }
     
     func step() -> GridProtocol
@@ -114,6 +116,8 @@ class StandardEngine: EngineProtocol {
         }
     }
     
+    var buttonClicks: Int = 1
+    
     func updateGridBasedOnConfiguration() {
         if let configuration = configuration {
             let newGrid = Grid(rows, cols) { position in
@@ -127,13 +131,13 @@ class StandardEngine: EngineProtocol {
     func createConfigurationBasedOnGrid() -> [Position] {
         let displayedGrid = grid.cells
         return displayedGrid.filter{$0.state.isLiving()}.map{return $0.position}
-        }
-  
- 
+    }
+    
+    
     
     
     var grid: GridProtocol
-
+    
     var rows: Int = 20 {
         didSet {
             grid = Grid(self.rows, self.cols) { _,_ in .Empty }
@@ -162,7 +166,7 @@ class StandardEngine: EngineProtocol {
         }
     }
     
-
+    
     
     private init(_ rows: Int, _ cols: Int, cellInitializer: CellInitializer = {_ in .Empty }) {
         self.rows = rows
@@ -170,12 +174,21 @@ class StandardEngine: EngineProtocol {
         self.grid = Grid(rows,cols, cellInitializer: cellInitializer)
     }
     
+    func startTimer(){
+        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(refreshRate, target: self, selector: #selector(StandardEngine.timerAction(_:)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func timerAction(timer:NSTimer) {
+        step()
+    }
+    
+    
     func step() -> GridProtocol {
         var newGrid = Grid(self.rows, self.cols)
         newGrid.cells = grid.cells.map {
             switch grid.livingNeighbors($0.position) {
             case 2 where $0.state.isLiving(),
-                 3 where $0.state.isLiving():  return Cell($0.position, .Alive)
+            3 where $0.state.isLiving():  return Cell($0.position, .Alive)
             case 3 where !$0.state.isLiving(): return Cell($0.position, .Born)
             case _ where $0.state.isLiving():  return Cell($0.position, .Died)
             default:                           return Cell($0.position, .Empty)
@@ -187,59 +200,54 @@ class StandardEngine: EngineProtocol {
     }
 }
 
-struct Grid: GridProtocol {
-    private(set) var rows: Int
-    private(set) var cols: Int
-    var cells: [Cell]
-    
-    var living: Int { return cells.reduce(0) { return  $1.state.isLiving() ?  $0 + 1 : $0 } }
-    var dead:   Int { return cells.reduce(0) { return !$1.state.isLiving() ?  $0 + 1 : $0 } }
-    var alive:  Int { return cells.reduce(0) { return  $1.state == .Alive  ?  $0 + 1 : $0 } }
-    var born:   Int { return cells.reduce(0) { return  $1.state == .Born   ?  $0 + 1 : $0 } }
-    var died:   Int { return cells.reduce(0) { return  $1.state == .Died   ?  $0 + 1 : $0 } }
-    var empty:  Int { return cells.reduce(0) { return  $1.state == .Empty  ?  $0 + 1 : $0 } }
-    
-    init (_ rows: Int, _ cols: Int, cellInitializer: CellInitializer = {_ in .Empty }) {
-        self.rows = rows
-        self.cols = cols
-        self.cells = (0..<rows*cols).map {
-            let pos = Position($0/cols, $0%cols)
-            return Cell(pos, cellInitializer(pos))
+    struct Grid: GridProtocol {
+        private(set) var rows: Int
+        private(set) var cols: Int
+        var cells: [Cell]
+        
+        var living: Int { return cells.reduce(0) { return  $1.state.isLiving() ?  $0 + 1 : $0 } }
+        var dead:   Int { return cells.reduce(0) { return !$1.state.isLiving() ?  $0 + 1 : $0 } }
+        var alive:  Int { return cells.reduce(0) { return  $1.state == .Alive  ?  $0 + 1 : $0 } }
+        var born:   Int { return cells.reduce(0) { return  $1.state == .Born   ?  $0 + 1 : $0 } }
+        var died:   Int { return cells.reduce(0) { return  $1.state == .Died   ?  $0 + 1 : $0 } }
+        var empty:  Int { return cells.reduce(0) { return  $1.state == .Empty  ?  $0 + 1 : $0 } }
+        
+        init (_ rows: Int, _ cols: Int, cellInitializer: CellInitializer = {_ in .Empty }) {
+            self.rows = rows
+            self.cols = cols
+            self.cells = (0..<rows*cols).map {
+                let pos = Position($0/cols, $0%cols)
+                return Cell(pos, cellInitializer(pos))
+            }
         }
-    }
-    
-    subscript (i:Int, j:Int) -> CellState {
-        get {
-            return cells[i*cols+j].state
+        
+        subscript (i:Int, j:Int) -> CellState {
+            get {
+                return cells[i*cols+j].state
+            }
+            set {
+                cells[i*cols+j].state = newValue
+            }
         }
-        set {
-            cells[i*cols+j].state = newValue
+        
+        private static let offsets:[Position] = [
+            (-1, -1), (-1, 0), (-1, 1),
+            ( 0, -1),          ( 0, 1),
+            ( 1, -1), ( 1, 0), ( 1, 1)
+        ]
+        func neighbors(pos: Position) -> [Position] {
+            return Grid.offsets.map { Position((pos.row + rows + $0.row) % rows,
+                (pos.col + cols + $0.col) % cols) }
         }
-    }
-    
-    private static let offsets:[Position] = [
-        (-1, -1), (-1, 0), (-1, 1),
-        ( 0, -1),          ( 0, 1),
-        ( 1, -1), ( 1, 0), ( 1, 1)
-    ]
-    func neighbors(pos: Position) -> [Position] {
-        return Grid.offsets.map { Position((pos.row + rows + $0.row) % rows,
-            (pos.col + cols + $0.col) % cols) }
-    }
-
-    func livingNeighbors(position: Position) -> Int {
-        return neighbors(position)
-            .reduce(0) {
-                self[$1.row,$1.col].isLiving() ? $0 + 1 : $0
+        
+        func livingNeighbors(position: Position) -> Int {
+            return neighbors(position)
+                .reduce(0) {
+                    self[$1.row,$1.col].isLiving() ? $0 + 1 : $0
+            }
         }
-    }
-    
-    
-    
-    
-    
+        
+        
+        
+        
 }
-
-
-
-
