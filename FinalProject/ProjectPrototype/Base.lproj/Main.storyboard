@@ -364,7 +364,7 @@
                                         <rect key="frame" x="0.0" y="141" width="570" height="70"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="m7s-aq-sWV">
-                                                <rect key="frame" x="0.0" y="9" width="488" height="51"/>
+                                                <rect key="frame" x="0.0" y="9" width="489" height="51"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0.1Hz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lxz-E7-RPg">
                                                         <rect key="frame" x="0.0" y="15" width="43" height="21"/>
@@ -373,16 +373,16 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Scl-f6-SUb" userLabel="SliderStack">
-                                                        <rect key="frame" x="43" y="0.0" width="406" height="51"/>
+                                                        <rect key="frame" x="43" y="0.0" width="407" height="51"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Speed of Life" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m52-g4-8ln">
-                                                                <rect key="frame" x="0.0" y="0.0" width="406" height="21"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="407" height="21"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.10000000000000001" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="9MW-3m-YZ0">
-                                                                <rect key="frame" x="-2" y="21" width="410" height="31"/>
+                                                                <rect key="frame" x="-2" y="21" width="411" height="31"/>
                                                                 <connections>
                                                                     <action selector="sliderMoved:" destination="xrk-m4-FgQ" eventType="valueChanged" id="DzN-va-Q8a"/>
                                                                 </connections>
@@ -393,7 +393,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="10Hz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgi-lW-4EF">
-                                                        <rect key="frame" x="449" y="15" width="39" height="21"/>
+                                                        <rect key="frame" x="450" y="15" width="39" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
@@ -401,16 +401,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iIs-gH-5zG" userLabel="SwitchStack">
-                                                <rect key="frame" x="508" y="4" width="62" height="62"/>
+                                                <rect key="frame" x="509" y="4" width="61" height="62"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Autopilot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="n72-g9-nrk" userLabel="AutoPilot">
-                                                        <rect key="frame" x="0.0" y="0.0" width="62" height="31"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="61" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hqY-Hz-SjA">
-                                                        <rect key="frame" x="7" y="31" width="51" height="31"/>
+                                                        <rect key="frame" x="6" y="31" width="51" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="hqY-Hz-SjA" secondAttribute="height" multiplier="1:1" id="Vm2-44-9E7"/>
                                                         </constraints>
